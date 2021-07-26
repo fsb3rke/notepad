@@ -74,6 +74,15 @@ public class form1 extends JFrame {
         setTitle("emoşi");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         texReadFile.setEnabled(false); // Here is not completed
+        String getReadd = texReadFile.getText();
+        String getWritee = texWriteFile.getText();
+
+        if (getReadd.length() == 0) {
+            btnSave.setText("Write");
+        }
+        else if (getWritee.length() == 0) {
+            btnSave.setText("Read");
+        }
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
