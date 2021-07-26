@@ -73,7 +73,6 @@ public class form1 extends JFrame {
         setSize(700,500);
         setTitle("emoşi");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        texReadFile.setEnabled(false); // Here is not completed
         String getReadd = texReadFile.getText();
         String getWritee = texWriteFile.getText();
 
