@@ -104,11 +104,11 @@ public class form1 extends JFrame {
                 String getRead = texReadFile.getText();
                 String getWrite = texWriteFile.getText();
 
-                if (getRead.length() == 0) {
+                if (getRead.length() == 0 && getWrite.length() == 0) {
                     isRead = false;
                     isWrite = true;
                 }
-                else if (getWrite.length() == 0) {
+                else if (getWrite.length() == 0 && getRead.length() == 0) {
                     isWrite = false;
                     isRead = true;
                 }
