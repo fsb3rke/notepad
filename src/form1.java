@@ -7,7 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class form1 extends JFrame {
     private JPanel panel1;
@@ -16,6 +17,8 @@ public class form1 extends JFrame {
     private JButton btnSave;
     private JTextField texWriteFile;
     private JTextField texReadFile;
+    private JTextField textField1;
+    private JButton button1;
 
     private boolean isRead = false;
     private boolean isWrite = false;
@@ -82,12 +85,13 @@ public class form1 extends JFrame {
         }
     }
 
-
     public form1() {
         add(panel1);
         setSize(700,500);
         setTitle("emoşi");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        textField1.setEnabled(false);
+        button1.setEnabled(false);
         String getReadd = texReadFile.getText();
         String getWritee = texWriteFile.getText();
 
@@ -104,11 +108,11 @@ public class form1 extends JFrame {
                 String getRead = texReadFile.getText();
                 String getWrite = texWriteFile.getText();
 
-                if (getRead.length() == 0 && getWrite.length() == 0) {
+                if (getRead.length() == 0 && getWrite.length() > 0) {
                     isRead = false;
                     isWrite = true;
                 }
-                else if (getWrite.length() == 0 && getRead.length() == 0) {
+                else if (getWrite.length() == 0  && getRead.length() > 0) {
                     isWrite = false;
                     isRead = true;
                 }
@@ -120,6 +124,13 @@ public class form1 extends JFrame {
                 else if (isWrite && !isRead) {
                     CreateWriteFile();
                 }
+            }
+        });
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String tx1 = textField1.getText();
             }
         });
     }
