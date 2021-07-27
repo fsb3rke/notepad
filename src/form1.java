@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +19,8 @@ public class form1 extends JFrame {
     private JButton btnSave;
     private JTextField texWriteFile;
     private JTextField texReadFile;
+    private JSlider slider1;
     private JTextField textField1;
-    private JButton button1;
 
     private boolean isRead = false;
     private boolean isWrite = false;
@@ -66,7 +68,7 @@ public class form1 extends JFrame {
 
     private void CreateWriteFile() {
         CreateFile();
-        WriteFile(4);
+        WriteFile(slider1.getValue());
     }
 
     private void ReadFile() {
@@ -90,8 +92,8 @@ public class form1 extends JFrame {
         setSize(700,500);
         setTitle("emoşi");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        textField1.setEnabled(false);
-        button1.setEnabled(false);
+        //textField1.setEnabled(false);
+        //button1.setEnabled(false);
         String getReadd = texReadFile.getText();
         String getWritee = texWriteFile.getText();
 
@@ -124,13 +126,15 @@ public class form1 extends JFrame {
                 else if (isWrite && !isRead) {
                     CreateWriteFile();
                 }
+
+                System.out.println(slider1.getValue());
             }
         });
-
-        button1.addActionListener(new ActionListener() {
+        slider1.addComponentListener(new ComponentAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                String tx1 = textField1.getText();
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                System.out.println(slider1.getValue());
             }
         });
     }
