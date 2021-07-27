@@ -34,12 +34,24 @@ public class form1 extends JFrame {
         }
     }
 
-    private void WriteFile() {
+    private void WriteFile(int headerSpace) {
+        boolean isUseSpace = false;
         try {
             FileWriter myWriter = new FileWriter(texWriteFile.getText());
             if (texHeaderName.getText().length() > 0) {
-                myWriter.write("_-_-_-_"+texHeaderName.getText()+"_-_-_-_"+"\n\n\n\n");
+                myWriter.write("_-_-_-_"+texHeaderName.getText()+"_-_-_-_");
+                isUseSpace = true;
             }
+            else {
+                isUseSpace = false;
+            }
+            if (isUseSpace) {
+                for (int i = 0; i <= headerSpace; i++) {
+                    //"\n\n\n\n"
+                    System.out.print("\n");
+                }
+            }
+
             myWriter.write(texNoteMain.getText());
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -51,7 +63,7 @@ public class form1 extends JFrame {
 
     private void CreateWriteFile() {
         CreateFile();
-        WriteFile();
+        WriteFile(4);
     }
 
     private void ReadFile() {
