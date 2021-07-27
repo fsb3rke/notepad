@@ -37,7 +37,9 @@ public class form1 extends JFrame {
     private void WriteFile() {
         try {
             FileWriter myWriter = new FileWriter(texWriteFile.getText());
-            myWriter.write("_-_-_-_"+texHeaderName.getText()+"_-_-_-_"+"\n\n\n\n");
+            if (texHeaderName.getText().length() > 0) {
+                myWriter.write("_-_-_-_"+texHeaderName.getText()+"_-_-_-_"+"\n\n\n\n");
+            }
             myWriter.write(texNoteMain.getText());
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
