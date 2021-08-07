@@ -1,4 +1,4 @@
 # notepad
 Notepad
 
-Simple notepad, writer and reader
+Simple notepad, printer and reader
